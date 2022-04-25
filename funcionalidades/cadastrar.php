@@ -19,7 +19,7 @@ function sna_cadastrar()
 							<label for="email">Email</label>
 							<input type="email" required name="email" placeholder="Email" />
 							<label for="cpf">CPF</label>
-							<input type="text" required name="cpf" placeholder="CPF onze dígitos" />
+							<input type="text" required oninput="mascara(this)" name="cpf" placeholder="CPF onze dígitos" />
 							<label for="foto">Foto do documento</label>
 							<input type="file" name="foto" />
 							<input type="submit" required class="button action" name="cadastrar" value="Cadastrar" />
@@ -29,6 +29,18 @@ function sna_cadastrar()
 				</tr>
 			</tbody>
 </table>
+<script>
+	function mascara(cpf){
+	   var input = cpf.value;
+	   if(isNaN(input[input.length-1])){
+		  cpf.value = input.substring(0, input.length-1);
+		  return;
+	   }   
+	   cpf.setAttribute("maxlength", "14");
+	   if (input.length == 3 || input.length == 7) cpf.value += ".";
+	   if (input.length == 11) cpf.value += "-";
+	}
+</script>
 <style>
 	table {
 		margin-top: 20px !important;
@@ -59,13 +71,25 @@ function sna_cadastrar_shortcode()
                 <label for="email">Email</label>
                 <input type="email" required name="email" placeholder="Email" />
                 <label for="cpf">CPF</label>
-                <input type="text" required name="cpf" placeholder="CPF onze dígitos" />
+				<input type="text" required oninput="mascara(this)" name="cpf" placeholder="CPF onze dígitos" />
                 <label for="foto">Foto do documento</label>
                 <input type="file" required name="foto" /><br>
                 <input type="submit" class="button action" name="cadastrar" value="Cadastrar" style="font-size: 100% !important;" />
             </div>
         </form>
     </div>
+	<script>
+		function mascara(cpf){
+		   var input = cpf.value;
+		   if(isNaN(input[input.length-1])){
+			  cpf.value = input.substring(0, input.length-1);
+			  return;
+		   }
+		   cpf.setAttribute("maxlength", "14");
+		   if (input.length == 3 || input.length == 7) cpf.value += ".";
+		   if (input.length == 11) cpf.value += "-";
+		}
+	</script>
 	';
 
     return $retorno;
