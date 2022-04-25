@@ -1,3 +1,3 @@
 # PluginFormWP
 
-![](https://github.com/wwwxkz/PluginFormWP/blob/master/README/video.gif)
+![](https://github.com/wwwxkz/PluginFormWP/blob/main/running.gif)
