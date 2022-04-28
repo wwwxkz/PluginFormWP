@@ -2,8 +2,8 @@
 
 /*
 Plugin Name: Cadastro SNA
-Description: Plugin solicitado pelo teste tecnico SNA
-Version: 0.1
+Description: Plugin solicitado pelo teste técnico SNA
+Version: 0.3
 Author: Marcelo Rodrigues
 Author URI: https://github.com/wwwxkz
 */
@@ -31,6 +31,7 @@ function ativacao(){
 		nome tinytext NOT NULL,
 		email varchar(255) NOT NULL,
 		cpf varchar(255) NOT NULL,
+		experiencias varchar(255),
 		foto varchar(255) NOT NULL,
 		UNIQUE KEY id (id)
 	) $charset_collate;";
@@ -38,8 +39,8 @@ function ativacao(){
 	dbDelta($sql);
 }
 
-register_deactivation_hook(__FILE__, 'desativacao');
-function desativacao(){
+register_uninstall_hook(__FILE__, 'desinstalacao');
+function desinstalacao(){
 	$tabela = "sna_usuarios"; 
 	$sql = "DROP TABLE IF EXISTS $tabela";
 	require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
