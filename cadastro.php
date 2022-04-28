@@ -3,14 +3,14 @@
 /*
 Plugin Name: Cadastro SNA
 Description: Plugin solicitado pelo teste técnico SNA
-Version: 0.4
+Version: 0.8
 Author: Marcelo Rodrigues
 Author URI: https://github.com/wwwxkz
 */
 
 define('CADASTRO_LOCAL', plugin_dir_path(__FILE__));
-require_once(CADASTRO_LOCAL . 'funcionalidades/cadastros.php');
-require_once(CADASTRO_LOCAL . 'funcionalidades/cadastrar.php');
+require_once(CADASTRO_LOCAL . 'funcionalidades/cadastros/cadastros.php');
+require_once(CADASTRO_LOCAL . 'funcionalidades/cadastrar/cadastrar.php');
 
 add_action('admin_menu', 'cadastro');
 function cadastro(){
