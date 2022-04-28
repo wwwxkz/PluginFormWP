@@ -59,17 +59,13 @@ function adicionar_experiencia(id, user) {
         `;
 }
 
-span = document.getElementsByClassName("fechar");
+function fecharPopup(){
+    modal.style.display = "none";
+}
 
-Array.prototype.filter.call(span, function (span) {
-    span.onclick = function () {
-        modal.style.display = "none";
-    }
-});
 window.onclick = function (event) {
     if (event.target == modal) {
-        foto.style.display = "none";
-        modal.style.display = "none";
+        fecharPopup()
     }
 }
 

@@ -49,7 +49,7 @@ function sna_cadastros()
                                     <input type="hidden" name="id" value="<?php echo $usuario->id; ?>">
                                     <input type="hidden" name="fotoAntiga" value="<?php echo $usuario->foto; ?>">
                                     <div class="conteudo-modal" style="display: flex; flex-direction: column;">
-                                        <span class="fechar">&times;</span>
+                                        <span onclick="fecharPopup()" class="fechar">&times;</span>
                                         <label>Nome</label>
                                         <input type="text" required name="nome" value="<?php echo $usuario->nome; ?>" placeholder="Nome completo" />
                                         <label>Email</label>
