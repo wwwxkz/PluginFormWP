@@ -3,7 +3,7 @@
 function sna_cadastrar_shortcode()
 {
     $retorno = '
-    <form method="post" action="script.php" enctype="multipart/form-data">
+    <form method="post" enctype="multipart/form-data">
         <div style="display: flex; flex-direction: column;">
             <label>Nome</label>
             <input type="text" required name="nome" placeholder="Nome completo" />
