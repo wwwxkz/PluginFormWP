@@ -33,7 +33,7 @@ function sna_cadastros()
                         <th><?php echo $usuario->email; ?></th>
                         <th><?php echo $usuario->cpf; ?></th>
                         <th>
-                            <a href="javascript:void(0);" onclick="mostrarPopup('<?php echo $usuario->id; ?>-foto')">Visualizar</a>
+                            <a href="javascript:void(0);" onclick="mostrar_popup('<?php echo $usuario->id; ?>-foto')">Visualizar</a>
                             <div id="<?php echo $usuario->id; ?>-foto" class="modal" style="display: none;">
                                 <div class="conteudo-modal">
                                     <span class="fechar">&times;</span>
@@ -43,13 +43,13 @@ function sna_cadastros()
                         </th>
                         <th>
                             <form method="post" enctype="multipart/form-data">
-                                <button type="button" class="button action" onclick="mostrarPopup('<?php echo $usuario->id; ?>-edit'); salvar_experiencia('<?php echo $usuario->id; ?>')">Editar</button>
+                                <button type="button" class="button action" onclick="mostrar_popup('<?php echo $usuario->id; ?>-edit'); salvar_experiencia('<?php echo $usuario->id; ?>')">Editar</button>
                                 <input type="submit" class="button action" name="deletar" value="Deletar" />
                                 <div id="<?php echo $usuario->id; ?>-edit" class="modal" style="display: none;">
                                     <input type="hidden" name="id" value="<?php echo $usuario->id; ?>">
                                     <input type="hidden" name="foto_antiga" value="<?php echo $usuario->foto; ?>">
                                     <div class="conteudo-modal" style="display: flex; flex-direction: column;">
-                                        <span onclick="fecharPopup()" class="fechar">&times;</span>
+                                        <span onclick="fechar_popup()" class="fechar">&times;</span>
                                         <label>Nome</label>
                                         <input type="text" required name="nome" value="<?php echo $usuario->nome; ?>" placeholder="Nome completo" />
                                         <label>Email</label>
@@ -104,7 +104,7 @@ function sna_cadastros()
                                                 <tr>
                                                     <th class="table-header">
                                                         <a>Foto</a>
-                                                        <a onclick="mostrarPopup('<?php echo $usuario->id; ?>-foto-editar')">Visualizar</a>
+                                                        <a onclick="mostrar_popup('<?php echo $usuario->id; ?>-foto-editar')">Visualizar</a>
                                                     </th>
                                                 </tr>
                                             </thead>

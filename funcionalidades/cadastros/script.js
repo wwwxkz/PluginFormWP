@@ -59,17 +59,17 @@ function adicionar_experiencia(id, user) {
         `;
 }
 
-function fecharPopup(){
+function fechar_popup(){
     modal.style.display = "none";
 }
 
 window.onclick = function (event) {
     if (event.target == modal) {
-        fecharPopup();
+        fechar_popup();
     }
 }
 
-function mostrarPopup(id) {
+function mostrar_popup(id) {
     if (id.includes("-foto-editar")) {
         foto = document.getElementById(id);
         if (foto.style.display == "none") {
