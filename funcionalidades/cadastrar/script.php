@@ -27,9 +27,9 @@ function cadastrar_formulario()
                         require_once(ABSPATH . 'wp-admin/includes/file.php');
                         $cadastrarFoto = wp_handle_upload($foto, array('test_form' => false));
                         if ($cadastrarFoto) {
-                            if (isset($_POST['fotoAntiga'])) {
-                                $fotoAntiga = str_replace(rtrim(get_site_url(), '/') . '/', ABSPATH, $_POST['fotoAntiga']);
-                                unlink($fotoAntiga);
+                            if (isset($_POST['foto_antiga'])) {
+                                $foto_antiga = str_replace(rtrim(get_site_url(), '/') . '/', ABSPATH, $_POST['foto_antiga']);
+                                unlink($foto_antiga);
                             }
                             return $cadastrarFoto['url'];
                         }
@@ -72,7 +72,7 @@ function cadastrar_formulario()
                                 'nome' => $nome,
                                 'email' => $email,
                                 'cpf' => $cpf,
-                                'foto' => $_POST['fotoAntiga'],
+                                'foto' => $_POST['foto_antiga'],
                                 'experiencias' => $experiencias
                             )
                         );

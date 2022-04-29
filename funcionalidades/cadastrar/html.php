@@ -4,6 +4,7 @@ function sna_cadastrar()
 ?>
     <link rel="stylesheet" href="..\wp-content\plugins\cadastro\funcionalidades\cadastrar\style.css">
     <script type="text/javascript" src="..\wp-content\plugins\cadastro\funcionalidades\cadastrar\script.js"></script>
+    <script type="text/javascript" src="..\wp-content\plugins\cadastro\funcionalidades\cadastrar\script.php"></script>
     <table class="wp-list-table widefat striped">
         <thead>
             <tr>
@@ -13,7 +14,7 @@ function sna_cadastrar()
         <tbody>
             <tr>
                 <th>
-                    <form method="post" action="script.php" enctype="multipart/form-data">
+                    <form method="post" enctype="multipart/form-data">
                         <div style="display: flex; flex-direction: column;">
                             <label>Nome</label>
                             <input type="text" required name="nome" placeholder="Nome completo" />

@@ -47,7 +47,7 @@ function sna_cadastros()
                                 <input type="submit" class="button action" name="deletar" value="Deletar" />
                                 <div id="<?php echo $usuario->id; ?>-edit" class="modal" style="display: none;">
                                     <input type="hidden" name="id" value="<?php echo $usuario->id; ?>">
-                                    <input type="hidden" name="fotoAntiga" value="<?php echo $usuario->foto; ?>">
+                                    <input type="hidden" name="foto_antiga" value="<?php echo $usuario->foto; ?>">
                                     <div class="conteudo-modal" style="display: flex; flex-direction: column;">
                                         <span onclick="fecharPopup()" class="fechar">&times;</span>
                                         <label>Nome</label>
