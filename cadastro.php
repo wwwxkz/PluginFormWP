@@ -1,9 +1,9 @@
 <?php
 
 /*
-Plugin Name: Cadastro SNA
+Plugin Name: SNA Cadastro
 Description: Plugin solicitado pelo teste técnico SNA
-Version: 0.8
+Version: 1.0
 Author: Marcelo Rodrigues
 Author URI: https://github.com/wwwxkz
 */
@@ -14,7 +14,7 @@ require_once(CADASTRO_LOCAL . 'funcionalidades/cadastrar/cadastrar.php');
 
 add_action('admin_menu', 'cadastro');
 function cadastro(){
-	add_menu_page( 'Cadastro SNA', 'Cadastro SNA', 'manage_options', 'cadastros', 'cadastros', 'dashicons-welcome-widgets-menus', 10 );
+	add_menu_page( 'Cadastro', 'Cadastro', 'manage_options', 'cadastros', 'cadastros', 'dashicons-welcome-widgets-menus', 10 );
 	add_submenu_page( 'cadastros', 'Listagem', 'Listagem', 'read', 'sna_cadastros', 'sna_cadastros' );
 	add_submenu_page( 'cadastros', 'Novo Cadastro', 'Novo Cadastro', 'read', 'sna_cadastrar', 'sna_cadastrar' );
 	remove_submenu_page('cadastros','cadastros');
