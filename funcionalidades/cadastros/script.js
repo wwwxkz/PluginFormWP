@@ -97,3 +97,12 @@ function mascara(cpf) {
     if (input.length == 3 || input.length == 7) cpf.value += ".";
     if (input.length == 11) cpf.value += "-";
 }
+
+
+function validar_nome() {
+    nome = document.getElementById("nome");
+    nome.style.color = 'red';
+    if (nome.value.split(" ").length >= 2) {
+        nome.style.color = 'green';
+    }
+}

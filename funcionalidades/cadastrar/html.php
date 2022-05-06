@@ -17,7 +17,7 @@ function sna_cadastrar()
                     <form method="post" enctype="multipart/form-data">
                         <div style="display: flex; flex-direction: column;">
                             <label>Nome</label>
-                            <input type="text" required name="nome" placeholder="Nome completo" />
+                            <input type="text" oninput="validar_nome()" required name="nome" id="nome" placeholder="Nome completo" />
                             <label>Email</label>
                             <input type="email" required name="email" placeholder="Email" />
                             <label>CPF</label>

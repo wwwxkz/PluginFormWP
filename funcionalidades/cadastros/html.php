@@ -44,18 +44,18 @@ function sna_cadastros()
                         <th>
                             <form method="post" enctype="multipart/form-data">
                                 <button type="button" class="button action" onclick="mostrar_popup('<?php echo $usuario->id; ?>-edit'); salvar_experiencia('<?php echo $usuario->id; ?>')">Editar</button>
-                                <input type="submit" class="button action" name="deletar" value="Deletar" />
+                                <input type="submit" class="button action" name="<?php echo $usuario->id; ?>-deletar" value="Deletar" />
                                 <div id="<?php echo $usuario->id; ?>-edit" class="modal" style="display: none;">
                                     <input type="hidden" name="id" value="<?php echo $usuario->id; ?>">
                                     <input type="hidden" name="foto_antiga" value="<?php echo $usuario->foto; ?>">
                                     <div class="conteudo-modal" style="display: flex; flex-direction: column;">
                                         <span onclick="fechar_popup()" class="fechar">&times;</span>
                                         <label>Nome</label>
-                                        <input type="text" required name="nome" value="<?php echo $usuario->nome; ?>" placeholder="Nome completo" />
+                                        <input type="text" oninput="validar_nome()" name="nome" id="nome" value="<?php echo $usuario->nome; ?>" placeholder="Nome completo" />
                                         <label>Email</label>
-                                        <input type="email" required name="email" value="<?php echo $usuario->email; ?>" placeholder="Email" />
+                                        <input type="email" name="email" value="<?php echo $usuario->email; ?>" placeholder="Email" />
                                         <label>CPF</label>
-                                        <input type="text" required oninput="mascara(this)" name="cpf" value="<?php echo $usuario->cpf; ?>" placeholder="CPF onze dígitos" />
+                                        <input type="text" oninput="mascara(this)" name="cpf" value="<?php echo $usuario->cpf; ?>" placeholder="CPF onze dígitos" />
                                         <table class="wp-list-table widefat striped experiencia">
                                             <thead>
                                                 <tr>
@@ -125,13 +125,10 @@ function sna_cadastros()
                         </th>
                     </tr>
                 <?php
-                }
-                ?>
-                <?php
-                if (isset($_POST['deletar'])) {
-                    $foto = str_replace(rtrim(get_site_url(), '/') . '/', ABSPATH, $usuario->foto);
-                    $wpdb->get_results("DELETE FROM sna_usuarios WHERE id=$usuario->id");
-                    unlink($foto);
+                      if (isset($_POST[$usuario->id . '-deletar'])) {
+                        $wpdb->get_results("DELETE FROM sna_usuarios WHERE id=$usuario->id");
+                        echo "<script>window.location.reload()</script>";
+                    }
                 }
                 ?>
             </tbody>
