@@ -9,7 +9,8 @@
 }
 
 .botoes>input[type="text"],
-.botoes>input[type="email"] {
+.botoes>input[type="email"],
+input[type="date"] {
     padding: 0 8px !important;
     margin: 0 !important;
 }
