@@ -3,7 +3,7 @@
 function sna_cadastros()
 {
     global $wpdb;
-    $sql = "SELECT * FROM sna_usuarios";
+    $sql = "SELECT * FROM sna_cadastro";
     $usuarios = $wpdb->get_results($sql);
     ?>
     <link rel="stylesheet" href="..\wp-content\plugins\cadastro\funcionalidades\cadastros\style.css">
@@ -18,6 +18,8 @@ function sna_cadastros()
                     <th scope="col">Nome</th>
                     <th scope="col">Email</th>
                     <th scope="col">CPF</th>
+                    <th scope="col">Horas</th>
+                    <th scope="col">CMA</th>
                     <th scope="col">Foto</th>
                     <th scope="col">Ações</th>
                 </tr>
@@ -32,6 +34,9 @@ function sna_cadastros()
                         <th><?php echo $usuario->nome; ?></th>
                         <th><?php echo $usuario->email; ?></th>
                         <th><?php echo $usuario->cpf; ?></th>
+                        <th><?php echo $usuario->horas; ?></th>
+                        <?php $data = new DateTime($usuario->cma); ?>
+                        <th><?php echo $data->format('Y-m-d'); ?></th>
                         <th>
                             <a href="javascript:void(0);" onclick="mostrar_popup('<?php echo $usuario->id; ?>-foto')">Visualizar</a>
                             <div id="<?php echo $usuario->id; ?>-foto" class="modal" style="display: none;">
@@ -56,6 +61,10 @@ function sna_cadastros()
                                         <input type="email" name="email" value="<?php echo $usuario->email; ?>" placeholder="Email" />
                                         <label>CPF</label>
                                         <input type="text" oninput="mascara(this)" name="cpf" value="<?php echo $usuario->cpf; ?>" placeholder="CPF onze dígitos" />
+                                        <label>Horas</label>
+                                        <input type="text" name="horas" id="horas" placeholder="Número de horas" />
+                                        <label>CMA</label>
+                                        <input type="date" name="cma" id="cma" placeholder="Validade CMA" />    
                                         <table class="wp-list-table widefat striped experiencia">
                                             <thead>
                                                 <tr>
@@ -118,7 +127,7 @@ function sna_cadastros()
                                         </table>
                                         <label>Foto do documento</label>
                                         <input type="file" name="foto" />
-                                        <input type="submit" type="submit" class="button action" name="editar" value="Editar" />
+                                        <input type="submit" type="submit" class="button action" name="cadastrarr-editar" value="Editar" />
                                     </div>
                                 </div>
                             </form>
@@ -126,7 +135,7 @@ function sna_cadastros()
                     </tr>
                 <?php
                       if (isset($_POST[$usuario->id . '-deletar'])) {
-                        $wpdb->get_results("DELETE FROM sna_usuarios WHERE id=$usuario->id");
+                        $wpdb->get_results("DELETE FROM sna_cadastro WHERE id=$usuario->id");
                         echo "<script>window.location.reload()</script>";
                     }
                 }

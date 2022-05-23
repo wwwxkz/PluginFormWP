@@ -23,6 +23,10 @@ function sna_cadastrar()
                             <label>CPF</label>
                             <input type="text" required oninput="mascara(this)" name="cpf" placeholder="CPF onze dígitos" />
                             <input type="text" name="experiencia" id="experiencia" style="display:none;" />
+                            <label>Horas</label>
+                            <input type="text" required name="horas" id="horas" placeholder="Número de horas" />
+                            <label>CMA</label>
+                            <input type="date" required name="cma" id="cma" placeholder="Validade CMA" />    
                             <table class="wp-list-table widefat striped experiencia">
                                 <thead>
                                     <tr>
@@ -42,10 +46,10 @@ function sna_cadastrar()
                                         </th>
                                     </tr>
                                 </tfoot>
-                            </table>
+                            </table>                        
                             <label for="foto">Foto do documento</label>
                             <input type="file" name="foto" />
-                            <input type="submit" required class="button action" name="cadastrar" value="Cadastrar" />
+                            <input type="submit" required class="button action" name="cadastrarr" value="Cadastrar" />
                         </div>
                     </form>
                 </th>

@@ -1,11 +1,14 @@
 <?php
 function cadastrar_formulario()
 {
-    if (isset($_POST['cadastrar']) || isset($_POST['editar'])) {
+    if (isset($_POST['cadastrarr']) || isset($_POST['cadastrarr-editar'])) {
         global $wpdb;
         $nome = $_POST['nome'];
         $email = $_POST['email'];
         $cpf = $_POST['cpf'];
+        $horas = $_POST['horas'];
+        $cma = strtotime($_POST["cma"]);
+        $cma = date('Y-m-d H:i:s', $cma);
         $cpf = str_replace(array('.', '-', ' '), '', $cpf);
         if (isset($_POST['experiencia'])) {
             $experiencias = $_POST['experiencia'];
@@ -16,8 +19,8 @@ function cadastrar_formulario()
             $experiencias = "";
         }
         if (strlen($cpf) == 11) {
-            $usuarios = $wpdb->get_results("SELECT 1 FROM sna_usuarios WHERE cpf = $cpf;");
-            if (isset($usuarios[0]) && $usuarios[0] >= 1 && isset($_POST['cadastrar'])) {
+            $usuarios = $wpdb->get_results("SELECT 1 FROM sna_cadastro WHERE cpf = $cpf;");
+            if (isset($usuarios[0]) && $usuarios[0] >= 1 && isset($_POST['cadastrarr'])) {
                 echo "<script>alert('CPF já cadastrado')</script>";
                 return 1;
             } else {
@@ -38,12 +41,14 @@ function cadastrar_formulario()
                     if (isset($_POST['id'])) {
                         $id = $_POST['id'];
                         $wpdb->replace(
-                            'sna_usuarios',
+                            'sna_cadastro',
                             array(
                                 'id' => $id,
                                 'nome' => $nome,
                                 'email' => $email,
                                 'cpf' => $cpf,
+                                'horas' => $horas,
+                                'cma' => $cma,
                                 'foto' => $foto,
                                 'experiencias' => $experiencias
                             )
@@ -51,11 +56,13 @@ function cadastrar_formulario()
                         return 0;
                     } else {
                         $wpdb->replace(
-                            'sna_usuarios',
+                            'sna_cadastro',
                             array(
                                 'nome' => $nome,
                                 'email' => $email,
                                 'cpf' => $cpf,
+                                'horas' => $horas,
+                                'cma' => $cma,
                                 'foto' => $foto,
                                 'experiencias' => $experiencias
                             )
@@ -66,12 +73,14 @@ function cadastrar_formulario()
                     if (isset($_POST['id'])) {
                         $id = $_POST['id'];
                         $wpdb->replace(
-                            'sna_usuarios',
+                            'sna_cadastro',
                             array(
                                 'id' => $id,
                                 'nome' => $nome,
                                 'email' => $email,
                                 'cpf' => $cpf,
+                                'horas' => $horas,
+                                'cma' => $cma,
                                 'foto' => $_POST['foto_antiga'],
                                 'experiencias' => $experiencias
                             )

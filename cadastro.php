@@ -1,9 +1,9 @@
 <?php
 
 /*
-Plugin Name: SNA Cadastro
+Plugin Name: WP SNA - Cadastro 
 Description: Plugin solicitado pelo teste técnico SNA
-Version: 1.0
+Version: 1.1
 Author: Marcelo Rodrigues
 Author URI: https://github.com/wwwxkz
 */
@@ -23,7 +23,7 @@ function cadastro(){
 register_activation_hook(__FILE__, 'ativacao');
 function ativacao(){
 	global $wpdb;
-	$tabela = "sna_usuarios"; 
+	$tabela = "sna_cadastro"; 
 	$charset_collate = $wpdb->get_charset_collate();
 	$sql = "CREATE TABLE $tabela (
 		id mediumint(9) NOT NULL AUTO_INCREMENT,
@@ -33,6 +33,8 @@ function ativacao(){
 		cpf varchar(255) NOT NULL,
 		experiencias varchar(255),
 		foto varchar(255) NOT NULL,
+		horas integer NOT NULL,
+		cma varchar(255) NOT NULL,
 		UNIQUE KEY id (id)
 	) $charset_collate;";
 	require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
@@ -41,7 +43,7 @@ function ativacao(){
 
 register_uninstall_hook(__FILE__, 'desinstalacao');
 function desinstalacao(){
-	$tabela = "sna_usuarios"; 
+	$tabela = "sna_cadastro"; 
 	$sql = "DROP TABLE IF EXISTS $tabela";
 	require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
 	dbDelta($sql);
