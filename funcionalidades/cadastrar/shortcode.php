@@ -73,7 +73,7 @@ function sna_cadastrar_shortcode()
         function adicionar_experiencia() {
             var tabela = document.getElementById("experiencias");
             var id = tabela.children.length;
-            tabela.innerHTML +=
+            tabela.insertAdjacentHTML ("afterbegin",
                 `
             <div id="` + id + `" class="experiencia-form">
                     <form method="post">
@@ -86,7 +86,7 @@ function sna_cadastrar_shortcode()
                             </div>
                     </form>
             </div>
-            `;
+            `);
         }
 
         function mascara(cpf) {

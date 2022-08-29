@@ -37,7 +37,7 @@ function remover_experiencia(id) {
 function adicionar_experiencia() {
     var tabela = document.getElementById("experiencias");
     var id = tabela.children.length;
-    tabela.innerHTML +=
+    tabela.insertAdjacentHTML ("afterbegin",
         `
     <tr id="` + id + `" class="experiencia-form">
         <th>
@@ -54,7 +54,7 @@ function adicionar_experiencia() {
             </form>
         </th>
     </tr>
-    `;
+    `);
 }
 
 function mascara(cpf) {

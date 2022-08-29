@@ -39,7 +39,7 @@ function remover_experiencia(id) {
 
 function adicionar_experiencia(id, user) {
     var tabela = document.getElementsByClassName("experiencias")[id];
-    tabela.innerHTML +=
+    tabela.insertAdjacentHTML ("afterbegin",
         `
         <tr id="` + (tabela.children.length + 1) + `" class="experiencia-form">
             <th>
@@ -56,7 +56,7 @@ function adicionar_experiencia(id, user) {
                 </div>
             </th>
         </tr>
-        `;
+        `);
 }
 
 function fechar_popup(){
